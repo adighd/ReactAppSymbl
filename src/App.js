@@ -9,7 +9,9 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
-        {runApp()}
+        <button className="name-picker-button" onClick={runApp}>
+            OK!
+        </button>
         <a
           className="App-link"
           href="https://reactjs.org"
@@ -30,10 +32,11 @@ function runApp() {
    * Check the Authentication section of the documentation for more details.
    */
   const accessToken = ""
-  const uniqueMeetingId = btoa("user@example.com")
+  const uniqueMeetingId = btoa("")
   const symblEndpoint = `wss://api.symbl.ai/v1/streaming/${uniqueMeetingId}?access_token=${accessToken}`;
   
   const ws = new WebSocket(symblEndpoint);
+  let stream = new MediaStream();
   
   // Fired when a message is received from the WebSocket server
   ws.onmessage = (event) => {
@@ -94,10 +97,10 @@ function runApp() {
     }));
   };
   
-
-  //(async () => {
-    const stream = await navigator.mediaDevices.getUserMedia({ audio: true, video: false });
-  //})();
+  async function makeStream() {
+    stream = await navigator.mediaDevices.getUserMedia({ audio: true, video: false });
+  }
+  makeStream();
 
   /**
     * The callback function which fires after a user gives the browser permission to use
