@@ -15,6 +15,8 @@ function App() {
         <button className="name-picker-button" onClick={runApp}>
             OK!
         </button>
+        <p>
+        </p>
         Live transcript: {transcript}
       </header>
     </div>
@@ -26,8 +28,8 @@ async function runApp() {
  * The JWT token you get after authenticating with our API.
  * Check the Authentication section of the documentation for more details.
  */
- const accessToken = "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlFVUTRNemhDUVVWQk1rTkJNemszUTBNMlFVVTRRekkyUmpWQ056VTJRelUxUTBVeE5EZzFNUSJ9.eyJodHRwczovL3BsYXRmb3JtLnN5bWJsLmFpL3VzZXJJZCI6IjUxODExMzk0NzI4NzU1MjAiLCJpc3MiOiJodHRwczovL2RpcmVjdC1wbGF0Zm9ybS5hdXRoMC5jb20vIiwic3ViIjoicFRXeXVpSVc1TUlhTW02ZGs3bjJMZmUyd0dCNjhFVEJAY2xpZW50cyIsImF1ZCI6Imh0dHBzOi8vcGxhdGZvcm0ucmFtbWVyLmFpIiwiaWF0IjoxNjQ2MTczMTQ4LCJleHAiOjE2NDYyNTk1NDgsImF6cCI6InBUV3l1aUlXNU1JYU1tNmRrN24yTGZlMndHQjY4RVRCIiwiZ3R5IjoiY2xpZW50LWNyZWRlbnRpYWxzIn0.slqX2hJYKTcprnWok1eeLsp9WXtKSbtGKziDr_ihp8zwh-xHX4Rej-idFuGMXh7dcJ6EvMxRkCqlKuHDZWIi7prscJNzE_YU4ftxrbyCNC86FXBBIfI6DqW_biMvjky_Z_vN5FBw48Iy5fOjXUnA10l4OikeTlOVOtF-Eo0PmDWfdSP8tWCYZjNB7Vt4Ojh5_geFtya3vUptEMQcVm51BSHv9mGzXPV3N6erpTlJJ-h68226jP-zS9gbIB_clReGuo7FR7TzsGAI-k_rkbkXEweGPZHSeQ6v96XJYhGGvpfpo9krQYzxbCb0O7oyAv4Qg-rCIBO0S8Wrkaq8RbFDyg"
- const uniqueMeetingId = btoa("jaryen@uw.edu")
+ const accessToken = ""
+ const uniqueMeetingId = btoa("")
  const symblEndpoint = `wss://api.symbl.ai/v1/streaming/${uniqueMeetingId}?access_token=${accessToken}`;
  
  const ws = new WebSocket(symblEndpoint);
@@ -61,7 +63,7 @@ async function runApp() {
    }
    console.log(`Response type: ${data.type}. Object: `, data);
  };
- 
+
  // Fired when the WebSocket closes unexpectedly due to an error or lost connetion
  ws.onerror  = (err) => {
    console.error(err);
@@ -131,8 +133,8 @@ async function runApp() {
 //    * The JWT token you get after authenticating with our API.
 //    * Check the Authentication section of the documentation for more details.
 //    */
-//   const accessToken = "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlFVUTRNemhDUVVWQk1rTkJNemszUTBNMlFVVTRRekkyUmpWQ056VTJRelUxUTBVeE5EZzFNUSJ9.eyJodHRwczovL3BsYXRmb3JtLnN5bWJsLmFpL3VzZXJJZCI6IjUxODExMzk0NzI4NzU1MjAiLCJpc3MiOiJodHRwczovL2RpcmVjdC1wbGF0Zm9ybS5hdXRoMC5jb20vIiwic3ViIjoicFRXeXVpSVc1TUlhTW02ZGs3bjJMZmUyd0dCNjhFVEJAY2xpZW50cyIsImF1ZCI6Imh0dHBzOi8vcGxhdGZvcm0ucmFtbWVyLmFpIiwiaWF0IjoxNjQ2MTczMTQ4LCJleHAiOjE2NDYyNTk1NDgsImF6cCI6InBUV3l1aUlXNU1JYU1tNmRrN24yTGZlMndHQjY4RVRCIiwiZ3R5IjoiY2xpZW50LWNyZWRlbnRpYWxzIn0.slqX2hJYKTcprnWok1eeLsp9WXtKSbtGKziDr_ihp8zwh-xHX4Rej-idFuGMXh7dcJ6EvMxRkCqlKuHDZWIi7prscJNzE_YU4ftxrbyCNC86FXBBIfI6DqW_biMvjky_Z_vN5FBw48Iy5fOjXUnA10l4OikeTlOVOtF-Eo0PmDWfdSP8tWCYZjNB7Vt4Ojh5_geFtya3vUptEMQcVm51BSHv9mGzXPV3N6erpTlJJ-h68226jP-zS9gbIB_clReGuo7FR7TzsGAI-k_rkbkXEweGPZHSeQ6v96XJYhGGvpfpo9krQYzxbCb0O7oyAv4Qg-rCIBO0S8Wrkaq8RbFDyg"
-//   const uniqueMeetingId = btoa("jaryen@uw.edu")
+//   const accessToken = ""
+//   const uniqueMeetingId = btoa("")
 //   const symblEndpoint = `wss://api.symbl.ai/v1/streaming/${uniqueMeetingId}?access_token=${accessToken}`;
   
 //   // Create a new websocket connection to the Symbl
