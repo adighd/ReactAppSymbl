@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import {useState} from 'react';
+let transcript = '';
 
 function App() {
   let [text, setText] = useState('');
@@ -14,15 +15,7 @@ function App() {
         <button className="name-picker-button" onClick={runApp}>
             OK!
         </button>
-
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        Live transcript: {transcript}
       </header>
     </div>
   );
@@ -63,6 +56,7 @@ async function runApp() {
      }
    }
    if (data.type === 'message' && data.message.hasOwnProperty('punctuated')) {
+     transcript = data.message.punctuated.transcript;
      console.log('Live transcript (less accurate): ', data.message.punctuated.transcript)
    }
    console.log(`Response type: ${data.type}. Object: `, data);
